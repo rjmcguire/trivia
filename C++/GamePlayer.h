@@ -9,8 +9,12 @@ using namespace std;
 class GamePlayer : public Player
 {
 private:
+	int place;
+
 public:
 	GamePlayer(string name);
-	int place;
 	bool inPenaltyBox;
+
+	void move(int movePlaces);
+	int getPlace();
 };

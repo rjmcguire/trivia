@@ -11,3 +11,12 @@ inPenaltyBox(0)
 {
 
 }
+
+void GamePlayer::move(int movePlaces) {
+	place += movePlaces;
+	if (place > 11) place -= 12;
+}
+
+int GamePlayer::getPlace() {
+	return place;
+}

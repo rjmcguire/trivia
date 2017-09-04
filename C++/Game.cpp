@@ -70,10 +70,9 @@ void Game::roll(int roll)
 			isGettingOutOfPenaltyBox = true;
 
 			cout << player->getName() << " is getting out of the penalty box" << endl;
-			currentPlayer()->place = currentPlayer()->place + roll;
-			if (currentPlayer()->place > 11) currentPlayer()->place = currentPlayer()->place - 12;
+			currentPlayer()->move(roll);
 
-			cout << player->getName() << "'s new location is " << currentPlayer()->place << endl;
+			cout << player->getName() << "'s new location is " << currentPlayer()->getPlace() << endl;
 			cout << "The category is " << currentCategory() << endl;
 			askQuestion();
 		}
@@ -87,10 +86,9 @@ void Game::roll(int roll)
 	else
 	{
 
-		currentPlayer()->place = currentPlayer()->place + roll;
-		if (currentPlayer()->place > 11) currentPlayer()->place = currentPlayer()->place - 12;
+		currentPlayer()->move(roll);
 
-		cout << player->getName() << "'s new location is " << currentPlayer()->place << endl;
+		cout << player->getName() << "'s new location is " << currentPlayer()->getPlace() << endl;
 		cout << "The category is " << currentCategory() << endl;
 		askQuestion();
 	}
@@ -124,7 +122,7 @@ void Game::askQuestion()
 
 string Game::currentCategory()
 {
-	auto place = currentPlayer()->place;
+	auto place = currentPlayer()->getPlace();
 	if (place == 0 || place == 4 || place == 8) return "Pop";
 	if (place == 1 || place == 5 || place == 9) return "Science";
 	if (place == 2 || place == 6 || place == 10) return "Sports";
