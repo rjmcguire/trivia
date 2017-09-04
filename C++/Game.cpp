@@ -6,8 +6,8 @@
 
 using namespace std;
 
-Game::Game() : currentPlayer(0), places({}), purses({}){
-	for (int i = 0; i < 50; i++)
+Game::Game() : currentPlayer(0), places(), purses(){
+	for (int i = 0; i < MAX_QUESTIONS; i++)
 	{
 
 		ostringstream oss (ostringstream::out);
@@ -15,13 +15,13 @@ Game::Game() : currentPlayer(0), places({}), purses({}){
 
 		popQuestions.push_back(oss.str());
 
-		char str[255];
-		sprintf(str, "Science Question %d", i);
-		scienceQuestions.push_back(str);
+		oss.str("");
+		oss << "Science Question " << i;
+		scienceQuestions.push_back(oss.str());
 
-		char str1[255];
-		sprintf(str1, "Sports Question %d", i);
-		sportsQuestions.push_back(str1);
+		oss.str("");
+		oss << "Sports Question " << i;
+		sportsQuestions.push_back(oss.str());
 
 		rockQuestions.push_back(createRockQuestion(i));
 	}
@@ -121,15 +121,10 @@ void Game::askQuestion()
 
 string Game::currentCategory()
 {
-	if (places[currentPlayer] == 0) return "Pop";
-	if (places[currentPlayer] == 4) return "Pop";
-	if (places[currentPlayer] == 8) return "Pop";
-	if (places[currentPlayer] == 1) return "Science";
-	if (places[currentPlayer] == 5) return "Science";
-	if (places[currentPlayer] == 9) return "Science";
-	if (places[currentPlayer] == 2) return "Sports";
-	if (places[currentPlayer] == 6) return "Sports";
-	if (places[currentPlayer] == 10) return "Sports";
+	auto place = places[currentPlayer];
+	if (place == 0 || place == 4 || place == 8) return "Pop";
+	if (place == 1 || place == 5 || place == 9) return "Science";
+	if (place == 2 || place == 6 || place == 10) return "Sports";
 	return "Rock";
 }
 

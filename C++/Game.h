@@ -6,6 +6,8 @@ using namespace std;
 #ifndef GAME_H_
 #define GAME_H_
 
+#define MAX_QUESTIONS 50
+
 class Game{
 
 		private:
