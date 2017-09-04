@@ -6,10 +6,12 @@ using namespace std;
 class Player
 {
 private:
+	int purse;
+	string name;
+
 public:
 	Player(string name);
-	string name; // TODO: make private
 	string getName();
-
-	int purse;
+	void addCredits(int credit);
+	int getCredits();
 };

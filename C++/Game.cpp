@@ -137,10 +137,10 @@ bool Game::wasCorrectlyAnswered()
 		if (isGettingOutOfPenaltyBox)
 		{
 			cout << "Answer was correct!!!!" << endl;
-			currentPlayer()->purse++;
+			currentPlayer()->addCredits(1);
 			cout << currentPlayer()->getName()
 			     << " now has "
-			     << currentPlayer()->purse
+			     << currentPlayer()->getCredits()
 				<<  " Gold Coins." << endl;
 
 			bool winner = didPlayerWin();
@@ -161,10 +161,10 @@ bool Game::wasCorrectlyAnswered()
 	{
 
 		cout << "Answer was corrent!!!!" << endl;
-		currentPlayer()->purse++;
+		currentPlayer()->addCredits(1);
 		cout << currentPlayer()->getName()
 				<< " now has "
-				<< currentPlayer()->purse
+				<< currentPlayer()->getCredits()
 			<< " Gold Coins." << endl;
 
 		bool winner = didPlayerWin();
@@ -187,7 +187,7 @@ bool Game::wrongAnswer()
 
 bool Game::didPlayerWin()
 {
-	return !(currentPlayer()->purse == 6);
+	return !(currentPlayer()->getCredits() == WINNING_CREDIT);
 }
 
 void Game::nextPlayer() {

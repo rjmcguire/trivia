@@ -8,6 +8,7 @@ using namespace std;
 
 #define MAX_QUESTIONS 50
 #define MAX_PLAYERS 6
+#define WINNING_CREDIT 6
 
 #include "GamePlayer.h"
 

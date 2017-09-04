@@ -13,3 +13,12 @@ name(name)
 string Player::getName() {
 	return this->name;
 }
+
+
+void Player::addCredits(int credits) {
+	purse++;
+}
+
+int Player::getCredits() {
+	return purse;
+}
