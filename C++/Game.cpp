@@ -72,7 +72,7 @@ void Game::roll(int roll)
 			cout << player->getName() << " is getting out of the penalty box" << endl;
 			currentPlayer()->move(roll);
 
-			cout << player->getName() << "'s new location is " << currentPlayer()->getPlace() << endl;
+			currentPlayer()->printLocation();
 			cout << "The category is " << currentCategory() << endl;
 			askQuestion();
 		}
@@ -88,8 +88,9 @@ void Game::roll(int roll)
 
 		currentPlayer()->move(roll);
 
-		cout << player->getName() << "'s new location is " << currentPlayer()->getPlace() << endl;
+		currentPlayer()->printLocation();
 		cout << "The category is " << currentCategory() << endl;
+
 		askQuestion();
 	}
 

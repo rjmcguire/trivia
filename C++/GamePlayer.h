@@ -17,4 +17,7 @@ public:
 
 	void move(int movePlaces);
 	int getPlace();
+
+	void printLocation();
+
 };

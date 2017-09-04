@@ -1,4 +1,5 @@
 #include <string>
+#include <iostream>
 using namespace std;
 
 #include "GamePlayer.h"
@@ -19,4 +20,8 @@ void GamePlayer::move(int movePlaces) {
 
 int GamePlayer::getPlace() {
 	return place;
+}
+
+void GamePlayer::printLocation() {
+	cout << getName() << "'s new location is " << place << endl;
 }
