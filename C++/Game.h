@@ -7,23 +7,23 @@ using namespace std;
 #define GAME_H_
 
 #define MAX_QUESTIONS 50
+#define MAX_PLAYERS 6
+
+#include "GamePlayer.h"
+
 
 class Game{
 
 		private:
-			vector<string> players;
-
-			int places[6];
-			int purses[6];
-
-			bool inPenaltyBox[6];
+			vector<GamePlayer*> players;
 
 			list<string> popQuestions;
 			list<string> scienceQuestions;
 			list<string> sportsQuestions;
 			list<string> rockQuestions;
 
-			int currentPlayer;
+			GamePlayer *currentPlayer();
+			int playerIndex;
 			bool isGettingOutOfPenaltyBox;
 
 public:
@@ -31,6 +31,8 @@ public:
 	string createRockQuestion(int index);
 	bool isPlayable();
 	bool add(string playerName);
+	void nextPlayer();
+
 
 	int howManyPlayers();
 	void roll(int roll);
